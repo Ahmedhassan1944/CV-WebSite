@@ -414,32 +414,16 @@ body {
 }
 
 .profile-image:hover {
-    transform: scale(1.3) rotate(15deg) translateY(-10px);
-    box-shadow:
-        0 30px 80px rgba(13, 94, 100, 0.6),
-        0 0 50px rgba(159, 132, 34, 0.8),
-        inset 0 0 30px rgba(247, 248, 254, 0.3);
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     background: conic-gradient(from 0deg, #0d5e64, #9f8422, #f7f8fe, #141413, #0d5e64);
     animation:
         continuousBounce 4s ease-in-out infinite,
         colorCycle 1s ease-in-out infinite,
-        breathe 1s ease-in-out infinite,
-        megaSpin 2s ease-in-out infinite;
+        breathe 1s ease-in-out infinite
 }
 
-.profile-image::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(247, 248, 254, 0.8), transparent);
-    transform: rotate(0deg);
-    transition: all 0.6s ease;
-    opacity: 0;
-    animation: continuousSpin 3s linear infinite;
-}
+
 
 .profile-image:hover::before {
     opacity: 1;
@@ -1279,13 +1263,28 @@ body {
 }
 
 /* Stagger floating animations slightly using child selectors */
-.skill-card:nth-child(even) { animation-delay: -3s; }
-.skill-card:nth-child(3n) { animation-delay: -1.5s; }
-.skill-card:nth-child(5n) { animation-delay: -4.5s; }
+.skill-card:nth-child(even) {
+    animation-delay: -3s;
+}
+
+.skill-card:nth-child(3n) {
+    animation-delay: -1.5s;
+}
+
+.skill-card:nth-child(5n) {
+    animation-delay: -4.5s;
+}
 
 @keyframes floatSkill {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .skill-card:hover {
@@ -1345,32 +1344,43 @@ body {
     .ecosystem-container {
         grid-template-columns: 1fr;
     }
+
     .ecosystem-sidebar {
         position: static;
         flex-direction: row;
         overflow-x: auto;
         padding: 15px;
         white-space: nowrap;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     .ecosystem-sidebar::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
+        display: none;
+        /* Chrome/Safari */
     }
-    .cat-name, .cat-count {
-        display: none; /* Hide text on mobile for horizontal scrolling tabs */
+
+    .cat-name,
+    .cat-count {
+        display: none;
+        /* Hide text on mobile for horizontal scrolling tabs */
     }
+
     .category-btn {
         padding: 10px;
         border-radius: 50%;
         min-width: 45px;
         justify-content: center;
     }
+
     .category-btn .cat-icon {
         margin-right: 0;
     }
+
     .category-btn.active {
         border-radius: 12px;
     }
+
     .category-btn.active .cat-name {
         display: inline-block;
         margin-left: 8px;
